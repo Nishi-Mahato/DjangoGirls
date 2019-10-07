@@ -1,22 +1,13 @@
-<<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            <p>published: 06.10.2019, 22:23</p>
-            <h2><a href="">My favorite hobby</a></h2>
-            <p> I have variety of hobbies. Since my childhood I love to sketch and paint. Drawing is a source to express your emotions graphically and painting acts as a catalyst for drawing. When I have nothing to do, I pick up my sketch box and a paper and starts drawing. It gives me pleasure. Whenever I draw something, I feel myself filled with passion. one of my other hobby is reading books. reading books is the best way to escape from the torment of the world and to rest in a world of imagination. In my personal life, I love to cook and try different cuisines. In my personal life, I love to cook and try different cuisines.</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-
-        <div>
-            <p>published: 06.10.2019, 22:33</p>
-            <h2><a href="">My favorite place - Jamshedpur</a></h2>
-            <p>Jamshedpur is a small town in Jharkhand, India. The main reason i love this place because I born and bought up there. I have so many memories there. It was named after the industrialist Jamshetji Tata and is home to such industrial giants as Tata Steel and Tata Motors. Jamshedpur is one of the 'Industrial Cities' of India, being known by many simply as "The Steel City". Jamshedpur is completely maintained by Tata Steel for the most part. Tata Steel is responsible for the infrastructure as well the public services offered in most parts of the city. It has so many attractions point.1. Dalma wildlife sanctuary 2. Tata Steel zoological park 3. Jubilee park 4. Dimna Lake</p>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
