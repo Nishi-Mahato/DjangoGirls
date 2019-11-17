@@ -13,7 +13,7 @@ class Blog_ATS(unittest.TestCase):
 
     def test_blog(self):
         user = "InvalidUser"
-        pwd = "HaveFun@8"
+        pwd = "123"
 
         driver = self.driver
         driver.maximize_window()

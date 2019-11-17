@@ -13,8 +13,8 @@ class Blog_ATS(unittest.TestCase):
     def test_blog(self):
         continue_test = False
         # replace ID and PW with a valid test username and password
-        user = "nishimahato"
-        pwd = "HaveFun@8"
+        user = "instructor"
+        pwd = "instructor1a"
         driver = self.driver
         driver.maximize_window()
         driver.get("http://127.0.0.1:8000/admin")

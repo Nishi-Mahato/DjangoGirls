@@ -12,8 +12,8 @@ class Blog_ATS(unittest.TestCase):
         self.driver = webdriver.Chrome()
 
     def test_blog(self):
-        user = "nishimahato"
-        pwd = "HaveFun@8"
+        user = "instructor"
+        pwd = "instructor1a"
 
         driver = self.driver
         driver.maximize_window()
@@ -29,11 +29,9 @@ class Blog_ATS(unittest.TestCase):
             elem = driver.find_element_by_xpath("//*[@id='user-tools']/a[3]")
             elem.click()
             elem1 = driver.find_element_by_xpath('//*[@id="content"]/h1').text
-            if(elem1 == 'Logged out'):
+            if elem1 == 'Logged out':
                 assert True
-            else:
-                raise NoSuchElementException
-        except (NoSuchElementException, AssertionError):
+        except NoSuchElementException:
             self.fail("User logout test failed")
             assert False
 
